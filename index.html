@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRI STONE Industries</title>
-
     <link rel="stylesheet" href="style.css">
-
-   
 </head>
 <body>
     <!-- Main Landing Page -->
@@ -16,7 +13,6 @@
         <div class="header">
             <div class="container">
                 <div class="logo"><img src="image/TSI logo.png" alt="Company Logo"></div>
-
                 <h1 class="company-name">TRI STONE</h1>
                 <p class="company-subtitle">Industries</p>
             </div>
@@ -25,50 +21,48 @@
         <!-- Main Content -->
         <div class="main-content">
             <div class="container">
-                  <!-- Main Title Box -->
+                <!-- Main Title Box -->
                 <div class="main-title-box">
-                    <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.
-                    </h2>
+                    <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.</h2>
                     <p class="main-subtitle">Before it's too late</p>
                 </div>
 
-               <!-- Top Countdown -->
-<div class="countdown-section">
-    <h3 class="countdown-title">Workshop Starts in</h3>
-    <div class="countdown" id="countdown-start">
-        <div class="countdown-item">
-            <span class="countdown-number" id="days-start">00</span>
-            <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="hours-start">00</span>
-            <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="minutes-start">00</span>
-            <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="seconds-start">00</span>
-            <span class="countdown-label">Seconds</span>
-        </div>
-    </div>
-</div>
+                <!-- Workshop Countdown -->
+                <div class="countdown-section">
+                    <h3 class="countdown-title">Workshop Starts in</h3>
+                    <div class="countdown" id="countdown-start">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days-start">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours-start">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes-start">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds-start">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
 
-              
-                <!-- Workshop Alert Box -->
+                <!-- Workshop Alert -->
                 <div class="workshop-alert">
                     <h3>3 Hour Online Workshop on</h3>
                     <p>STARTS ON 05th October 2025</p>
                     <p>(10:00 AM - 1:00 PM IST)</p>
                 </div>
 
-                <!-- Coach and Topics Section -->
+                <!-- Coach and Topics -->
                 <div class="coach-section">
                     <div class="coach-info">
                         <div class="coach-image">
-                        <img src="image/jls.jpg" alt="Coach" /></div>
-
+                            <img src="image/jls.jpg" alt="Coach" />
+                        </div>
                         <div class="coach-details">
                             <h3>John Living Stone</h3>
                             <p>Founder & CEO</p>
@@ -100,28 +94,29 @@
                             <span class="original-price">₹999</span>
                         </div>
                     </div>
-                    <!-- Bottom Countdown -->
-<div class="countdown-section">
-    <h3 class="countdown-title">Offer Ends In</h3>
-    <div class="countdown" id="countdown-offer">
-        <div class="countdown-item">
-            <span class="countdown-number" id="days-offer">00</span>
-            <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="hours-offer">00</span>
-            <span class="countdown-label">Hours</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="minutes-offer">00</span>
-            <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="seconds-offer">00</span>
-            <span class="countdown-label">Seconds</span>
-        </div>
-    </div>
-</div>
+
+                    <!-- Offer Countdown -->
+                    <div class="countdown-section">
+                        <h3 class="countdown-title">Offer Ends In</h3>
+                        <div class="countdown" id="countdown-offer">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days-offer">00</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours-offer">00</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes-offer">00</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="seconds-offer">00</span>
+                                <span class="countdown-label">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +159,7 @@
                         <label for="phone">Mobile Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number" required>
                     </div>
-                    <button type="submit" class="pay-btn">Pay ₹249</button>
+                    <button type="submit" class="pay-btn" id="rzp-button1">Pay ₹249</button>
                 </form>
             </div>
 
@@ -206,14 +201,8 @@
         </div>
     </div>
 
-
-    
-
-   <body>
-  <!-- Your HTML Content Here -->
-
-  <script src="script.js"></script>
-</body>
-
+    <!-- Razorpay JS -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
