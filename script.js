@@ -1,5 +1,5 @@
-   // Countdown Timer
-       function startCountdown(targetDate, ids) {
+// Countdown Timer
+function startCountdown(targetDate, ids) {
     const timer = setInterval(() => {
         const now = new Date().getTime();
         const distance = targetDate - now;
@@ -21,7 +21,7 @@
     }, 1000);
 }
 
-// Workshop start countdown (October 5, 2025, 10:00 AM IST)
+// Initialize countdowns
 startCountdown(new Date("2025-10-05T10:00:00").getTime(), {
     container: "countdown-start",
     days: "days-start",
@@ -29,8 +29,6 @@ startCountdown(new Date("2025-10-05T10:00:00").getTime(), {
     minutes: "minutes-start",
     seconds: "seconds-start"
 });
-
-// Offer countdown (example: October 4, 2025, 23:59 PM)
 startCountdown(new Date("2025-10-04T23:59:00").getTime(), {
     container: "countdown-offer",
     days: "days-offer",
@@ -39,48 +37,59 @@ startCountdown(new Date("2025-10-04T23:59:00").getTime(), {
     seconds: "seconds-offer"
 });
 
+// Page Navigation
+function showPaymentPage() {
+    document.getElementById("landingPage").style.display = "none";
+    document.getElementById("paymentPage").style.display = "block";
+    document.body.style.paddingBottom = "0";
+}
+function showLandingPage() {
+    document.getElementById("landingPage").style.display = "block";
+    document.getElementById("paymentPage").style.display = "none";
+    document.body.style.paddingBottom = "80px";
+}
 
-        // Page Navigation
-        function showPaymentPage() {
-            document.getElementById("landingPage").style.display = "none";
-            document.getElementById("paymentPage").style.display = "block";
-            document.body.style.paddingBottom = "0";
+// Smooth animations
+document.addEventListener("scroll", function() {
+    const elements = document.querySelectorAll(".topics-list li");
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.style.opacity = "1";
+            element.style.transform = "translateX(0)";
         }
+    });
+});
 
-        function showLandingPage() {
-            document.getElementById("landingPage").style.display = "block";
-            document.getElementById("paymentPage").style.display = "none";
-            document.body.style.paddingBottom = "80px";
+// Razorpay Integration
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    var options = {
+        "key": "YOUR_KEY_ID", // Replace with your Razorpay Key ID
+        "amount": 24900, // ₹249 in paise
+        "currency": "INR",
+        "name": "TRI STONE Industries",
+        "description": "IoT Workshop Registration",
+        "image": "image/TSI logo.png",
+        "handler": function (response){
+            alert("Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+            showLandingPage(); // or redirect to thank you page
+        },
+        "prefill": {
+            "name": name,
+            "email": email,
+            "contact": phone
+        },
+        "theme": {
+            "color": "#f39c12"
         }
-
-        // Form Submission
-        document.getElementById("registrationForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            const name = formData.get('fullName');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-
-            
-        });
-
-        // Initialize
-        document.addEventListener("DOMContentLoaded", function() {
-            startCountdown();
-            document.body.style.paddingBottom = "80px";
-        });
-
-        // Smooth scrolling and animations
-        document.addEventListener("scroll", function() {
-            const elements = document.querySelectorAll(".topics-list li");
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = "1";
-                    element.style.transform = "translateX(0)";
-                }
-            });
-        });
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+});
