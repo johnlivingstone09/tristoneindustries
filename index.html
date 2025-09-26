@@ -1,208 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRI STONE Industries</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRI STONE Industries - Payment</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
-    <!-- Main Landing Page -->
-    <div id="landingPage">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="container">
-                <div class="logo"><img src="image/TSI logo.png" alt="Company Logo"></div>
-                <h1 class="company-name">TRI STONE</h1>
-                <p class="company-subtitle">Industries</p>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="container">
-                <!-- Main Title Box -->
-                <div class="main-title-box">
-                    <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.</h2>
-                    <p class="main-subtitle">Before it's too late</p>
-                </div>
-
-                <!-- Workshop Countdown -->
-                <div class="countdown-section">
-                    <h3 class="countdown-title">Workshop Starts in</h3>
-                    <div class="countdown" id="countdown-start">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days-start">00</span>
-                            <span class="countdown-label">Days</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours-start">00</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes-start">00</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds-start">00</span>
-                            <span class="countdown-label">Seconds</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Workshop Alert -->
-                <div class="workshop-alert">
-                    <h3>3 Hour Online Workshop on</h3>
-                    <p>STARTS ON 05th October 2025</p>
-                    <p>(10:00 AM - 1:00 PM IST)</p>
-                </div>
-
-                <!-- Coach and Topics -->
-                <div class="coach-section">
-                    <div class="coach-info">
-                        <div class="coach-image">
-                            <img src="image/jls.jpg" alt="Coach" />
-                        </div>
-                        <div class="coach-details">
-                            <h3>John Living Stone</h3>
-                            <p>Founder & CEO</p>
-                            <p>Arduino & IoT Specialist</p>
-                            <div class="coach-stats">
-                                <p><strong>3+ Years Experience</strong></p>
-                                <p>Trained 500+ Students</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="topics-section">
-                        <h3>What You'll Learn</h3>
-                        <ul class="topics-list">
-                            <li>Arduino Fundamentals</li>
-                            <li>ESP32 Advanced Programming</li>
-                            <li>ESP8266 WiFi Integration</li>
-                            <li>Arduino Programming Techniques</li>
-                            <li>Sensors and Hardware Integration</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Register Section -->
-                <div class="register-section">
-                    <div style="text-align: center;">
-                        <button class="register-btn" onclick="showPaymentPage()">Register Now</button>
-                        <div class="price-section">
-                            <span class="current-price">₹249</span>
-                            <span class="original-price">₹999</span>
-                        </div>
-                    </div>
-
-                    <!-- Offer Countdown -->
-                    <div class="countdown-section">
-                        <h3 class="countdown-title">Offer Ends In</h3>
-                        <div class="countdown" id="countdown-offer">
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="days-offer">00</span>
-                                <span class="countdown-label">Days</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="hours-offer">00</span>
-                                <span class="countdown-label">Hours</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="minutes-offer">00</span>
-                                <span class="countdown-label">Minutes</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="seconds-offer">00</span>
-                                <span class="countdown-label">Seconds</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Fixed Bottom Bar -->
-        <div class="bottom-bar">
-            <div class="bottom-bar-content">
-                <div class="fee-details">
-                    Workshop Fee: ₹249 (Limited Time Offer)
-                </div>
-                <button class="bottom-register-btn" onclick="showPaymentPage()">Register Now</button>
-            </div>
-        </div>
+  <!-- Landing Page -->
+  <div id="landingPage">
+    <div class="header">
+      <div class="container">
+        <div class="logo"><img src="image/TSI logo.png" alt="Company Logo"></div>
+        <h1 class="company-name">TRI STONE</h1>
+        <p class="company-subtitle">Industries</p>
+      </div>
     </div>
 
-    <!-- Payment Page -->
-    <div id="paymentPage" class="payment-page">
-        <div class="payment-header">
-            <div class="container">
-                <div class="payment-header-content">
-                    <div class="back-logo" onclick="showLandingPage()" style="cursor: pointer;">← TRI STONE Industries</div>
-                    <div class="workshop-logo"> IOT Workshop</div>
-                </div>
-            </div>
+    <div class="main-content">
+      <div class="container">
+        <div class="main-title-box">
+          <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.</h2>
+          <p class="main-subtitle">Before it's too late</p>
         </div>
 
-        <div class="payment-content">
-            <div class="payment-form">
-                <h2>Secure Payment</h2>
-                <form id="registrationForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Mobile Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number" required>
-                    </div>
-                    <button type="submit" class="pay-btn" id="rzp-button1">Pay ₹249</button>
-                </form>
+        <div class="register-section">
+          <div style="text-align: center;">
+            <button class="register-btn" onclick="showPaymentPage()">Register Now</button>
+            <div class="price-section">
+              <span class="current-price">₹249</span>
+              <span class="original-price">₹999</span>
             </div>
-
-            <div class="program-details">
-                <h3>Program Details</h3>
-                <div class="detail-item">
-                    <span class="detail-label">📅 Program Date</span>
-                    <span class="detail-value">Oct 05, 2025</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">⏰ Program Time</span>
-                    <span class="detail-value">10:00 AM - 1:00 PM IST</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">📍 Mode</span>
-                    <span class="detail-value">Online Workshop</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">👨‍🎓 Instructor</span>
-                    <span class="detail-value">Arduino Expert</span>
-                </div>
-
-                <div class="payment-summary">
-                    <h3>Payment Summary</h3>
-                    <div class="summary-item">
-                        <span>Base Amount</span>
-                        <span>₹ 233.9</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>GST</span>
-                        <span>₹ 15.1</span>
-                    </div>
-                    <div class="summary-item total-amount">
-                        <span>To Pay</span>
-                        <span>₹ 249</span>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Razorpay JS -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="script.js"></script>
+    <!-- Fixed Bottom Bar -->
+    <div class="bottom-bar">
+      <div class="bottom-bar-content">
+        <div class="fee-details">Workshop Fee: ₹249 (Limited Time Offer)</div>
+        <button class="bottom-register-btn" onclick="showPaymentPage()">Register Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Page -->
+  <div id="paymentPage" class="payment-page">
+    <div class="payment-header">
+      <div class="container">
+        <div class="payment-header-content">
+          <div class="back-logo" onclick="showLandingPage()" style="cursor:pointer;">← TRI STONE Industries</div>
+          <div class="workshop-logo">IOT Workshop</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-content">
+      <div class="payment-form">
+        <h2>Secure Payment</h2>
+        <form id="registrationForm">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number" required>
+          </div>
+          <button type="submit" class="pay-btn">Pay ₹249</button>
+        </form>
+      </div>
+
+      <div class="program-details">
+        <h3>Program Details</h3>
+        <div class="detail-item">
+          <span class="detail-label">📅 Program Date</span>
+          <span class="detail-value">Oct 05, 2025</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">⏰ Program Time</span>
+          <span class="detail-value">10:00 AM - 1:00 PM IST</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">📍 Mode</span>
+          <span class="detail-value">Online Workshop</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">👨‍🎓 Instructor</span>
+          <span class="detail-value">Arduino Expert</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Page -->
+  <div id="successPage" style="display:none;">
+    <div class="success-box">
+      <h1>✅ Payment Successful</h1>
+      <p>Thank you for your payment!<br>Your registration is confirmed.</p>
+      <button onclick="redirectToWhatsApp()">Join WhatsApp Community</button>
+      <p class="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function showPaymentPage() {
+      document.getElementById("landingPage").style.display = "none";
+      document.getElementById("paymentPage").style.display = "block";
+    }
+
+    function showLandingPage() {
+      document.getElementById("landingPage").style.display = "block";
+      document.getElementById("paymentPage").style.display = "none";
+    }
+
+    function showSuccessPage() {
+      document.getElementById("paymentPage").style.display = "none";
+      document.getElementById("successPage").style.display = "block";
+
+      // Auto redirect countdown
+      let seconds = 5;
+      let countdown = setInterval(() => {
+        document.getElementById("timer").innerText = seconds;
+        seconds--;
+        if (seconds < 0) {
+          clearInterval(countdown);
+          redirectToWhatsApp();
+        }
+      }, 1000);
+    }
+
+    function redirectToWhatsApp() {
+      window.location.href = "https://chat.whatsapp.com/K36u3OFCVE2DcCr5sF7ZQ5";
+    }
+
+    // Razorpay integration
+    document.getElementById("registrationForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+
+      var options = {
+        "key": "YOUR_KEY_ID", // Replace with your Razorpay Key ID
+        "amount": 24900, // ₹249 in paise
+        "currency": "INR",
+        "name": "TRI STONE Industries",
+        "description": "IOT Workshop Registration",
+        "handler": function (response){
+          // Payment successful
+          console.log(response);
+          showSuccessPage();
+        },
+        "prefill": {
+          "name": name,
+          "email": email,
+          "contact": phone
+        },
+        "theme": {
+          "color": "#f39c12"
+        }
+      };
+
+      var rzp1 = new Razorpay(options);
+      rzp1.on('payment.failed', function (response){
+        alert("Payment failed: " + response.error.description);
+      });
+
+      rzp1.open();
+    });
+  </script>
 </body>
 </html>
