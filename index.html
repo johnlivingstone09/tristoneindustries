@@ -1,183 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRI STONE Industries - Payment</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRI STONE Industries</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f9f4; }
+  .container { max-width:1200px; margin:auto; padding:10px; }
+  .header, .bottom-bar { background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); padding:10px 0; }
+  .logo img { height:50px; }
+  .company-name { font-size:28px; margin:0; }
+  .company-subtitle { font-size:16px; margin:0; color:#555; }
+  .main-content { text-align:center; padding:20px; }
+  .main-title { font-size:24px; margin:10px 0; }
+  .main-subtitle { font-size:18px; color:#555; }
+  .register-btn, .bottom-register-btn, .pay-btn { background:#28a745; color:#fff; border:none; padding:12px 20px; border-radius:8px; cursor:pointer; font-size:16px; transition:0.3s; }
+  .register-btn:hover, .bottom-register-btn:hover, .pay-btn:hover { background:#218838; }
+  .price-section { margin-top:10px; }
+  .current-price { font-weight:bold; font-size:18px; margin-right:10px; }
+  .original-price { text-decoration:line-through; color:#777; }
+  .bottom-bar { position:fixed; bottom:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:10px 20px; }
+  .bottom-bar-content { display:flex; justify-content:space-between; width:100%; }
+  .fee-details { font-weight:bold; }
+  .payment-page, #successPage { display:none; padding:20px; }
+  .payment-form { background:#fff; padding:20px; border-radius:10px; max-width:400px; margin:auto; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+  .payment-form input { width:100%; padding:10px; margin:5px 0 15px 0; border-radius:5px; border:1px solid #ccc; }
+  .program-details { background:#fff; padding:20px; border-radius:10px; margin-top:20px; max-width:400px; margin:auto; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:left; }
+  .detail-item { display:flex; justify-content:space-between; margin:5px 0; }
+  .success-box { text-align:center; background:#fff; padding:40px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); max-width:400px; margin:50px auto; }
+  .success-box h1 { color:#28a745; margin-bottom:10px; }
+  .countdown-section { margin:20px 0; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
+  .countdown-item { text-align:center; background:#fff; padding:10px 15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); min-width:70px; }
+  .countdown-number { font-size:20px; font-weight:bold; display:block; }
+  .countdown-label { font-size:12px; color:#555; }
+  .workshop-alert { background:#e9ffe9; padding:15px; border-radius:10px; margin:15px 0; font-weight:bold; }
+  .coach-section { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:20px 0; }
+  .coach-info { display:flex; gap:15px; background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  .coach-image img { height:100px; border-radius:50%; }
+  .topics-list { list-style:disc; padding-left:20px; text-align:left; }
+</style>
 </head>
 <body>
-  <!-- Landing Page -->
-  <div id="landingPage">
-    <div class="header">
-      <div class="container">
-        <div class="logo"><img src="image/TSI logo.png" alt="Company Logo"></div>
-        <h1 class="company-name">TRI STONE</h1>
-        <p class="company-subtitle">Industries</p>
+
+<!-- Landing Page -->
+<div id="landingPage">
+  <div class="header container">
+    <div class="logo"><img src="image/TSI logo.png" alt="Company Logo"></div>
+    <h1 class="company-name">TRI STONE</h1>
+    <p class="company-subtitle">Industries</p>
+  </div>
+
+  <div class="main-content container">
+    <div class="main-title-box">
+      <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.</h2>
+      <p class="main-subtitle">Before it's too late</p>
+    </div>
+
+    <!-- Top Countdown -->
+    <div class="countdown-section">
+      <div class="countdown-item"><span class="countdown-number" id="days-start">00</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="hours-start">00</span><span class="countdown-label">Hours</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="minutes-start">00</span><span class="countdown-label">Minutes</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="seconds-start">00</span><span class="countdown-label">Seconds</span></div>
+    </div>
+
+    <!-- Workshop Alert -->
+    <div class="workshop-alert">
+      3 Hour Online Workshop on STARTS ON 05th October 2025 (10:00 AM - 1:00 PM IST)
+    </div>
+
+    <!-- Coach Section -->
+    <div class="coach-section">
+      <div class="coach-info">
+        <div class="coach-image"><img src="image/jls.jpg" alt="Coach"></div>
+        <div class="coach-details">
+          <h3>John Living Stone</h3>
+          <p>Founder & CEO</p>
+          <p>Arduino & IoT Specialist</p>
+          <p><strong>3+ Years Experience</strong>, Trained 500+ Students</p>
+        </div>
+      </div>
+      <div class="topics-section">
+        <h3>What You'll Learn</h3>
+        <ul class="topics-list">
+          <li>Arduino Fundamentals</li>
+          <li>ESP32 Advanced Programming</li>
+          <li>ESP8266 WiFi Integration</li>
+          <li>Arduino Programming Techniques</li>
+          <li>Sensors and Hardware Integration</li>
+        </ul>
       </div>
     </div>
 
-    <div class="main-content">
-      <div class="container">
-        <div class="main-title-box">
-          <h2 class="main-title">Join & Become the Top 1% Innovators in IoT & Smart Technology.</h2>
-          <p class="main-subtitle">Before it's too late</p>
-        </div>
-
-        <div class="register-section">
-          <div style="text-align: center;">
-            <button class="register-btn" onclick="showPaymentPage()">Register Now</button>
-            <div class="price-section">
-              <span class="current-price">₹249</span>
-              <span class="original-price">₹999</span>
-            </div>
-          </div>
-        </div>
+    <!-- Register Section -->
+    <div style="text-align:center;">
+      <button class="register-btn" onclick="showPaymentPage()">Register Now</button>
+      <div class="price-section">
+        <span class="current-price">₹249</span>
+        <span class="original-price">₹999</span>
       </div>
     </div>
 
-    <!-- Fixed Bottom Bar -->
-    <div class="bottom-bar">
-      <div class="bottom-bar-content">
-        <div class="fee-details">Workshop Fee: ₹249 (Limited Time Offer)</div>
-        <button class="bottom-register-btn" onclick="showPaymentPage()">Register Now</button>
-      </div>
+    <!-- Offer Countdown -->
+    <div class="countdown-section">
+      <div class="countdown-item"><span class="countdown-number" id="days-offer">00</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="hours-offer">00</span><span class="countdown-label">Hours</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="minutes-offer">00</span><span class="countdown-label">Minutes</span></div>
+      <div class="countdown-item"><span class="countdown-number" id="seconds-offer">00</span><span class="countdown-label">Seconds</span></div>
     </div>
   </div>
 
-  <!-- Payment Page -->
-  <div id="paymentPage" class="payment-page">
-    <div class="payment-header">
-      <div class="container">
-        <div class="payment-header-content">
-          <div class="back-logo" onclick="showLandingPage()" style="cursor:pointer;">← TRI STONE Industries</div>
-          <div class="workshop-logo">IOT Workshop</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="payment-content">
-      <div class="payment-form">
-        <h2>Secure Payment</h2>
-        <form id="registrationForm">
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Mobile Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number" required>
-          </div>
-          <button type="submit" class="pay-btn">Pay ₹249</button>
-        </form>
-      </div>
-
-      <div class="program-details">
-        <h3>Program Details</h3>
-        <div class="detail-item">
-          <span class="detail-label">📅 Program Date</span>
-          <span class="detail-value">Oct 05, 2025</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">⏰ Program Time</span>
-          <span class="detail-value">10:00 AM - 1:00 PM IST</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">📍 Mode</span>
-          <span class="detail-value">Online Workshop</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">👨‍🎓 Instructor</span>
-          <span class="detail-value">Arduino Expert</span>
-        </div>
-      </div>
+  <div class="bottom-bar">
+    <div class="bottom-bar-content">
+      <div class="fee-details">Workshop Fee: ₹249 (Limited Time Offer)</div>
+      <button class="bottom-register-btn" onclick="showPaymentPage()">Register Now</button>
     </div>
   </div>
+</div>
 
-  <!-- Success Page -->
-  <div id="successPage" style="display:none;">
-    <div class="success-box">
-      <h1>✅ Payment Successful</h1>
-      <p>Thank you for your payment!<br>Your registration is confirmed.</p>
-      <button onclick="redirectToWhatsApp()">Join WhatsApp Community</button>
-      <p class="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
-    </div>
+<!-- Payment Page -->
+<div id="paymentPage" class="payment-page container">
+  <div class="payment-header">
+    <div class="back-logo" onclick="showLandingPage()" style="cursor:pointer;">← TRI STONE Industries</div>
+    <div class="workshop-logo">IOT Workshop</div>
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    function showPaymentPage() {
-      document.getElementById("landingPage").style.display = "none";
-      document.getElementById("paymentPage").style.display = "block";
-    }
+  <div class="payment-form">
+    <h2>Secure Payment</h2>
+    <form id="registrationForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Mobile Number" required>
+      <button type="submit" class="pay-btn">Pay ₹249</button>
+    </form>
+  </div>
 
-    function showLandingPage() {
-      document.getElementById("landingPage").style.display = "block";
-      document.getElementById("paymentPage").style.display = "none";
-    }
+  <div class="program-details">
+    <h3>Program Details</h3>
+    <div class="detail-item"><span>📅 Program Date</span><span>Oct 05, 2025</span></div>
+    <div class="detail-item"><span>⏰ Program Time</span><span>10:00 AM - 1:00 PM IST</span></div>
+    <div class="detail-item"><span>📍 Mode</span><span>Online Workshop</span></div>
+    <div class="detail-item"><span>👨‍🎓 Instructor</span><span>Arduino Expert</span></div>
+    <div class="payment-summary">
+      <h3>Payment Summary</h3>
+      <div class="detail-item"><span>Base Amount</span><span>₹ 233.9</span></div>
+      <div class="detail-item"><span>GST</span><span>₹ 15.1</span></div>
+      <div class="detail-item total-amount"><span>To Pay</span><span>₹ 249</span></div>
+    </div>
+  </div>
+</div>
 
-    function showSuccessPage() {
-      document.getElementById("paymentPage").style.display = "none";
-      document.getElementById("successPage").style.display = "block";
+<!-- Success Page -->
+<div id="successPage">
+  <div class="success-box">
+    <h1>✅ Payment Successful</h1>
+    <p>Thank you for your payment!<br>Your registration is confirmed.</p>
+    <button onclick="redirectToWhatsApp()">Join WhatsApp Community</button>
+    <p class="countdown">Redirecting in <span id="timer">5</span> seconds...</p>
+  </div>
+</div>
 
-      // Auto redirect countdown
-      let seconds = 5;
-      let countdown = setInterval(() => {
-        document.getElementById("timer").innerText = seconds;
-        seconds--;
-        if (seconds < 0) {
-          clearInterval(countdown);
-          redirectToWhatsApp();
-        }
-      }, 1000);
-    }
+<script>
+function showPaymentPage(){ document.getElementById("landingPage").style.display="none"; document.getElementById("paymentPage").style.display="block"; }
+function showLandingPage(){ document.getElementById("landingPage").style.display="block"; document.getElementById("paymentPage").style.display="none"; }
+function showSuccessPage(){ 
+  document.getElementById("paymentPage").style.display="none"; 
+  document.getElementById("successPage").style.display="block"; 
+  let seconds=5; 
+  let countdown=setInterval(()=>{ document.getElementById("timer").innerText=seconds; seconds--; if(seconds<0){ clearInterval(countdown); redirectToWhatsApp(); } },1000);
+}
+function redirectToWhatsApp(){ window.location.href="https://chat.whatsapp.com/K36u3OFCVE2DcCr5sF7ZQ5"; }
 
-    function redirectToWhatsApp() {
-      window.location.href = "https://chat.whatsapp.com/K36u3OFCVE2DcCr5sF7ZQ5";
-    }
+// Razorpay
+document.getElementById("registrationForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name=document.getElementById("fullName").value;
+  const email=document.getElementById("email").value;
+  const phone=document.getElementById("phone").value;
+  var options={
+    "key":"rzp_test_RMLp1U4xSLkunP", // Replace with your Razorpay Key ID
+    "amount":24900,
+    "currency":"INR",
+    "name":"TRI STONE Industries",
+    "description":"IOT Workshop Registration",
+    "handler":function(response){ console.log(response); showSuccessPage(); },
+    "prefill":{ "name":name, "email":email, "contact":phone },
+    "theme":{ "color":"#f39c12" }
+  };
+  var rzp1=new Razorpay(options);
+  rzp1.on('payment.failed', function(response){ alert("Payment failed: "+response.error.description); });
+  rzp1.open();
+});
 
-    // Razorpay integration
-    document.getElementById("registrationForm").addEventListener("submit", function(e){
-      e.preventDefault();
+// Countdown timers
+function startCountdown(endDate, ids){
+  let x=setInterval(function(){
+    let now=new Date().getTime();
+    let distance=endDate-now;
+    if(distance<0){ clearInterval(x); distance=0; }
+    document.getElementById(ids[0]).innerText=Math.floor(distance/(1000*60*60*24));
+    document.getElementById(ids[1]).innerText=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    document.getElementById(ids[2]).innerText=Math.floor((distance%(1000*60*60))/(1000*60));
+    document.getElementById(ids[3]).innerText=Math.floor((distance%(1000*60))/1000);
+  },1000);
+}
 
-      const name = document.getElementById("fullName").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
+// Set your workshop and offer dates here
+startCountdown(new Date("Oct 5, 2025 10:00:00").getTime(), ["days-start","hours-start","minutes-start","seconds-start"]);
+startCountdown(new Date("Oct 4, 2025 23:59:59").getTime(), ["days-offer","hours-offer","minutes-offer","seconds-offer"]);
+</script>
 
-      var options = {
-        "key": "rzp_test_RMLp1U4xSLkunP", // Replace with your Razorpay Key ID
-        "amount": 24900, // ₹249 in paise
-        "currency": "INR",
-        "name": "TRI STONE Industries",
-        "description": "IOT Workshop Registration",
-        "handler": function (response){
-          // Payment successful
-          console.log(response);
-          showSuccessPage();
-        },
-        "prefill": {
-          "name": name,
-          "email": email,
-          "contact": phone
-        },
-        "theme": {
-          "color": "#f39c12"
-        }
-      };
-
-      var rzp1 = new Razorpay(options);
-      rzp1.on('payment.failed', function (response){
-        alert("Payment failed: " + response.error.description);
-      });
-
-      rzp1.open();
-    });
-  </script>
 </body>
 </html>
-
