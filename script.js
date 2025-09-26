@@ -71,7 +71,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     const phone = document.getElementById('phone').value;
 
     var options = {
-        "key": "YOUR_KEY_ID", // Replace with your Razorpay Key ID
+        "key": "rzp_test_RMLp1U4xSLkunP", // Replace with your Razorpay Key ID
         "amount": 24900, // ₹249 in paise
         "currency": "INR",
         "name": "TRI STONE Industries",
@@ -93,3 +93,4 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     var rzp1 = new Razorpay(options);
     rzp1.open();
 });
+
