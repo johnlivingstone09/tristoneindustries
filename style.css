@@ -1,0 +1,519 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+    width:200px;
+    height: 100px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures image stays inside the circle */
+}
+
+.logo img {
+    width: 100%;      /* Fits image inside the div */
+    height: 100%;
+    object-fit: cover; /* Crops image nicely inside the circle */
+    display: block;
+}
+
+
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .company-subtitle {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #666;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            min-height: calc(100vh - 200px);
+            padding: 50px 0;
+            color: white;
+        }
+
+        /* Workshop Details Box */
+        .workshop-alert {
+            background: linear-gradient(45deg, #e74c3c, #ff6b6b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .workshop-alert h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .workshop-alert p {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* Main Title Box */
+        .main-title-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #f39c12;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .main-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .main-subtitle {
+            font-size: 1.2rem;
+            color: #f39c12;
+            font-style: italic;
+        }
+
+        /* Coach and Topics Section */
+        .coach-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            margin-bottom: 50px;
+            align-items: center;
+        }
+
+        .coach-info {
+            text-align: center;
+        }
+
+        .coach-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
+    overflow: hidden; /* ensures image stays inside the circle */
+}
+
+.coach-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures image covers the circle nicely */
+}
+
+
+        .coach-details h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .coach-details p {
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .coach-stats {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .topics-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #f39c12;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 10px;
+        }
+
+        .topics-list {
+            list-style: none;
+        }
+
+        .topics-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .topics-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .topics-list li::before {
+            content: "⚡";
+            margin-right: 10px;
+            color: #f39c12;
+        }
+
+        /* Register Section */
+        .register-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .register-btn {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+            text-transform: uppercase;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(243, 156, 18, 0.6);
+        }
+
+        .countdown-section {
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 80px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f39c12;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            text-transform: uppercase;
+        }
+
+        .price-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .current-price {
+            font-size: 3rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            color: #bdc3c7;
+            text-decoration: line-through;
+            margin-left: 15px;
+        }
+
+        /* Fixed Bottom Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            padding: 15px 0;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .bottom-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .fee-details {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .bottom-register-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Payment Page Styles */
+        .payment-page {
+            display: none;
+            background: white;
+            min-height: 100vh;
+            padding: 50px 0;
+        }
+
+        .payment-header {
+            background: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 50px;
+        }
+
+        .payment-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+
+        .workshop-logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .payment-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .payment-form {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .payment-form h2 {
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .pay-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+        }
+
+        .program-details {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .program-details h3 {
+            color: #1a1a2e;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        .payment-summary {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #dee2e6;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .total-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            border-top: 2px solid #dee2e6;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .coach-section,
+            .register-section,
+            .payment-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .company-name {
+                font-size: 2rem;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .bottom-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .coach-image {
+                width: 150px;
+                height: 150px;
+                font-size: 40px;
+            }
+        }
