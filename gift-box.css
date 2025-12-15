@@ -1,0 +1,343 @@
+/* Gift Box Styles */
+.gift-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: smoothBounce 4s ease-in-out infinite;
+    margin: 20px auto;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.gift-icon {
+    font-size: 70px;
+}
+
+.gift-icon i {
+    font-size: 100px;
+    background: linear-gradient(45deg, #8b0000, #b8860b, #191970);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: colorFlow 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(139, 0, 0, 0.4));
+}
+
+@keyframes smoothBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes colorFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes professionalFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-2deg);
+    }
+}
+
+/* Gift Popup Overlay */
+.gift-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.gift-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Gift Popup */
+.gift-popup {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gift-popup-overlay.active .gift-popup {
+    transform: scale(1) translateY(0);
+}
+
+.gift-popup-header {
+    padding: 25px 25px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gift-popup-header h2 {
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.gift-popup-content {
+    padding: 20px 25px 25px;
+}
+
+.gift-intro {
+    text-align: center;
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.gift-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.gift-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.gift-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gift-item-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    color: #667eea;
+}
+
+.gift-item-icon i {
+    font-size: 28px;
+}
+
+.gift-item-text h3 {
+    color: #2d3748;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.gift-item-text p {
+    color: #4a5568;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.gift-popup-footer {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.claim-gift-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.claim-gift-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .gift-box {
+        width: 70px;
+        height: 70px;
+        bottom: 90px;
+        right: 15px;
+    }
+    
+    .gift-icon {
+        font-size: 60px;
+    }
+    
+    .gift-icon i {
+        font-size: 70px;
+        margin-top: 224%;
+    }
+    
+    .gift-popup {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .gift-popup-header {
+        padding: 20px 20px 15px;
+    }
+    
+    .gift-popup-header h2 {
+        font-size: 20px;
+    }
+    
+    .gift-popup-content {
+        padding: 15px 20px 20px;
+    }
+    
+    .gift-item {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .gift-item-icon {
+        font-size: 28px;
+    }
+    
+    .gift-item-icon i {
+        font-size: 24px;
+    }
+    
+    .gift-item-text h3 {
+        font-size: 15px;
+    }
+    
+    .gift-item-text p {
+        font-size: 13px;
+    }
+    
+    .claim-gift-btn {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-box {
+        width: 65px;
+        height: 65px;
+        bottom: 85px;
+        right: 10px;
+    }
+    
+    .gift-icon {
+        font-size: 55px;
+    }
+    
+    .gift-icon i {
+        font-size: 65px;
+        margin-top: 254%;
+    }
+    
+    .gift-popup-header h2 {
+        font-size: 18px;
+    }
+    
+    .gift-items {
+        gap: 12px;
+    }
+    
+    .gift-item {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .gift-item-icon {
+        font-size: 24px;
+    }
+    
+    .gift-item-icon i {
+        font-size: 20px;
+    }
+    
+    .gift-item-text h3 {
+        font-size: 14px;
+    }
+    
+    .gift-item-text p {
+        font-size: 12px;
+    }
+}
